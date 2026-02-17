@@ -1,0 +1,13 @@
+{
+  "name": "agentlint",
+  "description": "Real-time quality guardrails for AI coding agents. Blocks secrets, force-pushes, and destructive commands. Warns on code drift, missing tests, and debug artifacts.",
+  "version": "0.1.0",
+  "author": {
+    "name": "maupr92",
+    "email": "mauricioperezr92@gmail.com"
+  },
+  "homepage": "https://github.com/maupr92/agentlint",
+  "repository": "https://github.com/maupr92/agentlint-plugin",
+  "license": "MIT",
+  "keywords": ["guardrails", "linting", "code-quality", "hooks", "agent-safety"]
+}
