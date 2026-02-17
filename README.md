@@ -21,7 +21,7 @@ If available in the Claude Code plugin directory:
 ## Install from Marketplace
 
 ```
-/plugin marketplace add maupr92/agentlint
+/plugin marketplace add mauhpr/agentlint
 /plugin install agentlint@agentlint
 ```
 
@@ -47,7 +47,7 @@ After installing, create `agentlint.yml` in your project:
 agentlint init
 ```
 
-See [agentlint documentation](https://github.com/maupr92/agentlint) for full configuration options.
+See [agentlint documentation](https://github.com/mauhpr/agentlint) for full configuration options.
 
 ## Commands
 
