@@ -10,19 +10,13 @@ Install the `agentlint` Python package:
 pip install agentlint
 ```
 
-## Install from Plugin Directory
+## Install from GitHub
 
-If available in the Claude Code plugin directory:
+Add the marketplace and install:
 
-```
-/plugin install agentlint
-```
-
-## Install from Marketplace
-
-```
-/plugin marketplace add mauhpr/agentlint
-/plugin install agentlint@agentlint
+```bash
+claude plugin marketplace add mauhpr/agentlint-plugin
+claude plugin install agentlint@agentlint
 ```
 
 ## Install Locally
