@@ -1,7 +1,7 @@
 {
   "name": "agentlint",
   "description": "Real-time quality guardrails for AI coding agents. Blocks secrets, force-pushes, and destructive commands. Warns on code drift, missing tests, and debug artifacts.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "maupr92",
     "email": "mauricio_perez_r@hotmail.com"
