@@ -2,7 +2,7 @@
   "name": "agentlint",
   "owner": {
     "name": "maupr92",
-    "email": "mauricioperezr92@gmail.com"
+    "email": "mauricio_perez_r@hotmail.com"
   },
   "metadata": {
     "description": "Real-time quality guardrails for AI coding agents",
@@ -16,7 +16,7 @@
       "version": "0.1.0",
       "author": {
         "name": "maupr92",
-        "email": "mauricioperezr92@gmail.com"
+        "email": "mauricio_perez_r@hotmail.com"
       },
       "homepage": "https://github.com/mauhpr/agentlint-plugin",
       "repository": "https://github.com/mauhpr/agentlint-plugin",
