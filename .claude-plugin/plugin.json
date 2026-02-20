@@ -3,11 +3,11 @@
   "description": "Real-time quality guardrails for AI coding agents. 31 rules across 5 packs — universal, Python, frontend, React, and SEO. Auto-detects your stack.",
   "version": "0.2.0",
   "author": {
-    "name": "maupr92",
+    "name": "mauhpr",
     "email": "mauricio_perez_r@hotmail.com"
   },
-  "homepage": "https://github.com/maupr92/agentlint",
-  "repository": "https://github.com/maupr92/agentlint-plugin",
+  "homepage": "https://github.com/mauhpr/agentlint",
+  "repository": "https://github.com/mauhpr/agentlint-plugin",
   "license": "MIT",
   "keywords": ["guardrails", "linting", "code-quality", "hooks", "agent-safety"]
 }
