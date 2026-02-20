@@ -1,7 +1,7 @@
 {
   "name": "agentlint",
   "description": "Real-time quality guardrails for AI coding agents. 31 rules across 5 packs — universal, Python, frontend, React, and SEO. Auto-detects your stack.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "mauhpr",
     "email": "mauricio_perez_r@hotmail.com"

@@ -10,11 +10,11 @@ Install the `agentlint` Python package:
 pip install agentlint
 ```
 
-## PATH requirements
+## Binary resolution
 
-The plugin hooks use the bare `agentlint` command and require it to be on your shell's PATH. If hooks fail with `command not found` (common with venv or non-standard installs), use `agentlint setup` instead — it resolves the absolute path automatically.
+The plugin automatically resolves the `agentlint` binary at runtime — no PATH configuration needed. It probes, in order: PATH lookup, `~/.local/bin` (pipx), `uv tool` install location, and `python -m agentlint`. This works regardless of how you installed the package.
 
-See the [agentlint documentation](https://github.com/mauhpr/agentlint#quick-start) for details.
+If auto-resolution still fails, run `agentlint setup` to register hooks with an absolute path instead.
 
 ## Install from GitHub
 
