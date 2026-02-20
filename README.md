@@ -10,6 +10,12 @@ Install the `agentlint` Python package:
 pip install agentlint
 ```
 
+## Binary resolution
+
+The plugin automatically resolves the `agentlint` binary at runtime — no PATH configuration needed. It probes, in order: PATH lookup, `~/.local/bin` (pipx), `uv tool` install location, and `python -m agentlint`. This works regardless of how you installed the package.
+
+If auto-resolution still fails, run `agentlint setup` to register hooks with an absolute path instead.
+
 ## Install from GitHub
 
 Add the marketplace and install:
