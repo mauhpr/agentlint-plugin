@@ -10,6 +10,12 @@ Install the `agentlint` Python package:
 pip install agentlint
 ```
 
+## PATH requirements
+
+The plugin hooks use the bare `agentlint` command and require it to be on your shell's PATH. If hooks fail with `command not found` (common with venv or non-standard installs), use `agentlint setup` instead — it resolves the absolute path automatically.
+
+See the [agentlint documentation](https://github.com/mauhpr/agentlint#quick-start) for details.
+
 ## Install from GitHub
 
 Add the marketplace and install:
