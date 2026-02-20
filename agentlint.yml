@@ -1,0 +1,24 @@
+# AgentLint Configuration
+# Docs: https://github.com/mauhpr/agentlint
+
+stack: auto
+
+severity: standard  # strict | standard | relaxed
+
+packs:
+  - universal
+  # - python          # Auto-detected from pyproject.toml / setup.py
+  # - frontend        # Auto-detected from package.json
+  # - react           # Auto-detected from react in dependencies
+  # - seo             # Auto-detected from SSR/SSG framework
+
+rules: {}
+  # Override individual rules:
+  # no-secrets:
+  #   enabled: false
+  # max-file-size:
+  #   limit: 300
+  # no-bare-except:
+  #   allow_reraise: true
+
+# custom_rules_dir: .agentlint/rules/
