@@ -1,7 +1,7 @@
 {
   "name": "agentlint",
   "owner": {
-    "name": "maupr92",
+    "name": "mauhpr",
     "email": "mauricio_perez_r@hotmail.com"
   },
   "metadata": {
@@ -12,10 +12,10 @@
     {
       "name": "agentlint",
       "source": "./",
-      "description": "Real-time quality guardrails for AI coding agents. Blocks secrets, force-pushes, and destructive commands. Warns on code drift, missing tests, and debug artifacts.",
-      "version": "0.1.1",
+      "description": "Real-time quality guardrails for AI coding agents. 31 rules across 5 packs — universal, Python, frontend, React, and SEO. Auto-detects your stack.",
+      "version": "0.2.0",
       "author": {
-        "name": "maupr92",
+        "name": "mauhpr",
         "email": "mauricio_perez_r@hotmail.com"
       },
       "homepage": "https://github.com/mauhpr/agentlint-plugin",

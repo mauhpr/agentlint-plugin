@@ -1,6 +1,6 @@
 # agentlint — Claude Code Plugin
 
-Real-time quality guardrails for AI coding agents. Blocks secrets, force-pushes, and destructive commands before they happen.
+Real-time quality guardrails for AI coding agents. 31 rules across 5 packs that auto-activate based on your project's tech stack.
 
 ## Prerequisites
 
@@ -29,9 +29,21 @@ claude --plugin-dir /path/to/agentlint-plugin
 
 AgentLint hooks into three Claude Code lifecycle events:
 
-- **PreToolUse** — Intercepts Bash, Edit, and Write calls. Blocks secrets, `.env` commits, force-pushes, and destructive commands.
-- **PostToolUse** — Checks written files for size limits and tracks edit drift.
+- **PreToolUse** — Intercepts Bash, Edit, and Write calls. Blocks secrets, `.env` commits, force-pushes, destructive commands, unsafe shell execution, SQL injection, and more.
+- **PostToolUse** — Checks written files for size limits, tracks edit drift, and flags unnecessary async.
 - **Stop** — Generates an end-of-session quality report with debug artifact and TODO detection.
+
+## Rule packs
+
+| Pack | Rules | Auto-activates when |
+|------|-------|---------------------|
+| **universal** | 10 | Always active |
+| **python** | 6 | `pyproject.toml` or `setup.py` exists |
+| **frontend** | 8 | `package.json` exists |
+| **react** | 3 | `react` in package.json dependencies |
+| **seo** | 4 | SSR/SSG framework (Next.js, Nuxt, Gatsby, Astro, etc.) detected |
+
+See [agentlint documentation](https://github.com/mauhpr/agentlint) for the full rule reference.
 
 ## Configuration
 
