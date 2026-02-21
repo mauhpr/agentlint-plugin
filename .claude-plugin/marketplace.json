@@ -21,9 +21,9 @@
       "homepage": "https://github.com/mauhpr/agentlint-plugin",
       "repository": "https://github.com/mauhpr/agentlint-plugin",
       "license": "MIT",
-      "keywords": ["guardrails", "linting", "code-quality", "hooks", "agent-safety"],
+      "keywords": ["guardrails", "linting", "code-quality", "hooks", "agent-safety", "claude-code"],
       "category": "code-quality",
-      "tags": ["guardrails", "linting", "secrets", "safety"]
+      "tags": ["guardrails", "linting", "secrets", "safety", "claude-code"]
     }
   ]
 }

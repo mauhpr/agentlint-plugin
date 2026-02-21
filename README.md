@@ -16,6 +16,17 @@ The plugin automatically resolves the `agentlint` binary at runtime — no PATH 
 
 If auto-resolution still fails, run `agentlint setup` to register hooks with an absolute path instead.
 
+## Troubleshooting
+
+**Hooks not firing?** Verify the plugin is installed: `claude plugin list`
+
+**`agentlint: command not found`?** The binary resolver couldn't locate agentlint.
+Install it (`pip install agentlint`) or run `agentlint setup` to embed an absolute
+path in your hooks.
+
+**Timeouts?** PreToolUse hooks have a 5s timeout. If your project is very large,
+consider using `severity: relaxed` in `agentlint.yml`.
+
 ## Install from GitHub
 
 Add the marketplace and install:
