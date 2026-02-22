@@ -11,6 +11,7 @@ packs:
   # - frontend        # Auto-detected from package.json
   # - react           # Auto-detected from react in dependencies
   # - seo             # Auto-detected from SSR/SSG framework
+  # - security        # Opt-in: blocks Bash file writes, network exfiltration
 
 rules: {}
   # Override individual rules:
