@@ -1,6 +1,6 @@
 # agentlint — Claude Code Plugin
 
-Real-time quality guardrails for AI coding agents. 31 rules across 5 packs that auto-activate based on your project's tech stack.
+Real-time quality guardrails for AI coding agents. 36 rules across 6 packs that auto-activate based on your project's tech stack.
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ claude --plugin-dir /path/to/agentlint-plugin
 
 AgentLint hooks into three Claude Code lifecycle events:
 
-- **PreToolUse** — Intercepts Bash, Edit, and Write calls. Blocks secrets, `.env` commits, force-pushes, destructive commands, unsafe shell execution, SQL injection, and more.
+- **PreToolUse** — Intercepts Bash, Edit, and Write calls. Blocks secrets, `.env` commits, force-pushes, destructive commands, unsafe shell execution, SQL injection, and more. With the security pack enabled, also blocks Bash file writes and network exfiltration.
 - **PostToolUse** — Checks written files for size limits, tracks edit drift, and flags unnecessary async.
 - **Stop** — Generates an end-of-session quality report with debug artifact and TODO detection.
 
@@ -54,11 +54,12 @@ AgentLint hooks into three Claude Code lifecycle events:
 
 | Pack | Rules | Auto-activates when |
 |------|-------|---------------------|
-| **universal** | 10 | Always active |
+| **universal** | 13 | Always active |
 | **python** | 6 | `pyproject.toml` or `setup.py` exists |
 | **frontend** | 8 | `package.json` exists |
 | **react** | 3 | `react` in package.json dependencies |
 | **seo** | 4 | SSR/SSG framework (Next.js, Nuxt, Gatsby, Astro, etc.) detected |
+| **security** | 2 | Opt-in (add `security` to packs) |
 
 See [agentlint documentation](https://github.com/mauhpr/agentlint) for the full rule reference.
 
@@ -76,6 +77,7 @@ See [agentlint documentation](https://github.com/mauhpr/agentlint) for full conf
 
 - `/agentlint:lint-status` — Show active rules and session violations
 - `/agentlint:lint-config` — Show or edit AgentLint configuration
+- `agentlint list-rules` — List all available rules (use `--pack security` to filter)
 
 ## License
 
