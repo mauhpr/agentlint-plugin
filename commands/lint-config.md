@@ -11,4 +11,4 @@ Read the `agentlint.yml` file in the project root and display:
 
 If the user wants to change settings, edit the agentlint.yml file.
 
-Note: The `security` pack is opt-in — add it to the `packs` list to enable it. Use `agentlint list-rules` to see all available rules, or `agentlint list-rules --pack security` to see security-specific rules.
+Note: The `quality` pack is always active alongside `universal`. The `security` pack is opt-in — add it to the `packs` list to enable it. Use `agentlint list-rules` to see all available rules, or `agentlint list-rules --pack quality` to see quality-specific rules. Run `agentlint doctor` to diagnose common misconfigurations.
