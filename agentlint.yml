@@ -7,6 +7,7 @@ severity: standard  # strict | standard | relaxed
 
 packs:
   - universal
+  - quality            # Always active: commit format, dead imports, error handling, self-review
   # - python          # Auto-detected from pyproject.toml / setup.py
   # - frontend        # Auto-detected from package.json
   # - react           # Auto-detected from react in dependencies
