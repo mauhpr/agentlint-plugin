@@ -1,6 +1,6 @@
 # agentlint — Claude Code Plugin
 
-Real-time quality guardrails for AI coding agents. 41 rules across 7 packs covering all 17 Claude Code hook events.
+Real-time quality guardrails for AI coding agents. 42 rules across 7 packs covering all 17 Claude Code hook events.
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ AgentLint hooks into all 17 Claude Code lifecycle events. The key events:
 
 | Pack | Rules | Auto-activates when |
 |------|-------|---------------------|
-| **universal** | 14 | Always active |
+| **universal** | 15 | Always active |
 | **quality** | 4 | Always active |
 | **python** | 6 | `pyproject.toml` or `setup.py` exists |
 | **frontend** | 8 | `package.json` exists |
@@ -75,6 +75,14 @@ agentlint init
 
 See [agentlint documentation](https://github.com/mauhpr/agentlint) for full configuration options.
 
+## Agents
+
+Specialized agents for multi-step operations:
+
+- `/agentlint:security-audit` — Scan your codebase for security vulnerabilities, hardcoded secrets, and unsafe patterns
+- `/agentlint:doctor` — Diagnose configuration issues, verify hook installation, suggest optimal pack settings
+- `/agentlint:fix` — Auto-fix common violations (debug artifacts, accessibility, dead imports) with confirmation
+
 ## Commands
 
 - `/agentlint:lint-status` — Show active rules and session violations
@@ -82,6 +90,7 @@ See [agentlint documentation](https://github.com/mauhpr/agentlint) for full conf
 - `agentlint list-rules` — List all available rules (use `--pack security` to filter)
 - `agentlint status` — Show version, severity mode, active packs, rule count, and session activity
 - `agentlint doctor` — Diagnose common misconfigurations
+- `agentlint import-agents-md` — Import conventions from AGENTS.md into AgentLint config
 
 ## License
 
