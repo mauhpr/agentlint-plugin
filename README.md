@@ -49,7 +49,11 @@ AgentLint hooks into all 17 Claude Code lifecycle events. The key events:
 - **PreToolUse** — Intercepts Bash, Edit, and Write calls. Blocks secrets, `.env` commits, force-pushes, destructive commands, unsafe shell execution, SQL injection, and more. Validates commit messages. With the security pack enabled, also blocks Bash file writes and network exfiltration.
 - **PostToolUse** — Checks written files for size limits, tracks edit drift, detects dead imports, warns on error handling removal, and flags unnecessary async. Tracks session token budget.
 - **UserPromptSubmit** / **SubagentStop** / **Notification** — Passthrough events for future rule expansion.
-- **Stop** — Generates an end-of-session quality report with debug artifact detection, TODO scanning, token budget summary, and adversarial self-review prompt.
+- **Stop** — Generates an end-of-session quality report with debug artifact detection, TODO scanning, token budget summary, circuit breaker status, and adversarial self-review prompt.
+
+### Circuit Breaker (Progressive Trust)
+
+When a blocking rule fires repeatedly (3+ times), it automatically degrades from ERROR → WARNING → INFO → suppressed — preventing false-positive loops from blocking agents. Security-critical rules (`no-secrets`, `no-env-commit`) are exempt and always block. Auto-resets after 5 clean evaluations or 30 minutes. Fully configurable per-rule.
 
 ## Rule packs
 
