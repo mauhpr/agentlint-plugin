@@ -1,6 +1,6 @@
 # agentlint — Claude Code Plugin
 
-Real-time quality guardrails for AI coding agents. 42 rules across 7 packs covering all 17 Claude Code hook events.
+Real-time quality guardrails for AI coding agents. 48 rules across 8 packs covering all 17 Claude Code hook events.
 
 ## Prerequisites
 
@@ -66,6 +66,7 @@ When a blocking rule fires repeatedly (3+ times), it automatically degrades from
 | **react** | 3 | `react` in package.json dependencies |
 | **seo** | 4 | SSR/SSG framework (Next.js, Nuxt, Gatsby, Astro, etc.) detected |
 | **security** | 2 | Opt-in (add `security` to packs) |
+| **autopilot** | 6 | Opt-in (add `autopilot` to packs) |
 
 See [agentlint documentation](https://github.com/mauhpr/agentlint) for the full rule reference.
 
