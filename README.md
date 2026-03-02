@@ -1,6 +1,6 @@
 # agentlint — Claude Code Plugin
 
-Real-time quality guardrails for AI coding agents. 57 rules across 8 packs covering all 17 Claude Code hook events.
+Real-time guardrails for AI coding agents — code quality, security, and infrastructure safety. 57 rules across 8 packs covering all 17 Claude Code hook events.
 
 ## Prerequisites
 
@@ -41,6 +41,12 @@ claude plugin install agentlint@agentlint
 ```bash
 claude --plugin-dir /path/to/agentlint-plugin
 ```
+
+## Vision
+
+The short-term problem is code quality: secrets, broken tests, force-pushes, debug artifacts. AgentLint solves that today.
+
+The longer-term question is harder: what does it mean for an agent to operate safely on real infrastructure? The **autopilot pack** is the first experiment in that direction — opt-in, explicitly experimental, built in the open.
 
 ## What it does
 
