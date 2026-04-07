@@ -12,8 +12,8 @@
     {
       "name": "agentlint",
       "source": "./",
-      "description": "Real-time quality guardrails for AI coding agents. 65 rules across 8 packs covering all 17 Claude Code hook events. File-scope governance, CLI integration, custom packs.",
-      "version": "1.1.0",
+      "description": "Real-time quality guardrails for AI coding agents. 68 rules across 8 packs. File-scope governance, CLI integration, naming conventions, diff size limits.",
+      "version": "1.2.0",
       "author": {
         "name": "mauhpr",
         "email": "mauricio_perez_r@hotmail.com"

@@ -1,6 +1,6 @@
 # agentlint — Claude Code Plugin
 
-Real-time guardrails for AI coding agents — code quality, security, infrastructure safety, file-scope governance, and CLI tool integration. 65 rules across 8 packs covering all 17 Claude Code hook events.
+Real-time guardrails for AI coding agents — code quality, security, infrastructure safety, file-scope governance, and CLI tool integration. 68 rules across 8 packs covering all 17 Claude Code hook events.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ AgentLint hooks into all 17 Claude Code lifecycle events:
 | Pack | Rules | Activates when |
 |------|-------|----------------|
 | **universal** | 19 | Always active |
-| **quality** | 4 | Always active |
+| **quality** | 7 | Always active |
 | **python** | 6 | `pyproject.toml` or `setup.py` exists |
 | **frontend** | 8 | `package.json` exists |
 | **react** | 3 | `react` in package.json dependencies |
