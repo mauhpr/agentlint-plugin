@@ -13,6 +13,8 @@ packs:
   # - react           # Auto-detected from react in dependencies
   # - seo             # Auto-detected from SSR/SSG framework
   # - security        # Opt-in: blocks Bash file writes, network exfiltration
+  # - autopilot       # Opt-in: production guard, cloud/infra safety
+  # - mypack          # Custom packs: add name here + set custom_rules_dir below
 
 rules: {}
   # Override individual rules:
@@ -20,7 +22,16 @@ rules: {}
   #   enabled: false
   # max-file-size:
   #   limit: 300
-  # no-bare-except:
-  #   allow_reraise: true
+  #
+  # CLI integration — run any external tool on PostToolUse:
+  # cli-integration:
+  #   commands:
+  #     - name: ruff
+  #       on: ["Write", "Edit"]
+  #       glob: "**/*.py"
+  #       command: "ruff check {file.path} --output-format=concise"
+  #       timeout: 10
+  #       severity: warning
 
 # custom_rules_dir: .agentlint/rules/
+# Custom rules with pack = "mypack" activate when "mypack" is listed in packs above
