@@ -1,6 +1,6 @@
 # agentlint — Claude Code Plugin
 
-Real-time guardrails for AI coding agents — code quality, security, infrastructure safety, and CLI tool integration. 64 rules across 8 packs covering all 17 Claude Code hook events.
+Real-time guardrails for AI coding agents — code quality, security, infrastructure safety, file-scope governance, and CLI tool integration. 65 rules across 8 packs covering all 17 Claude Code hook events.
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ AgentLint hooks into all 17 Claude Code lifecycle events:
 
 | Pack | Rules | Activates when |
 |------|-------|----------------|
-| **universal** | 18 | Always active |
+| **universal** | 19 | Always active |
 | **quality** | 4 | Always active |
 | **python** | 6 | `pyproject.toml` or `setup.py` exists |
 | **frontend** | 8 | `package.json` exists |
@@ -55,6 +55,19 @@ AgentLint hooks into all 17 Claude Code lifecycle events:
 | **seo** | 4 | SSR/SSG framework detected |
 | **security** | 3 | Opt-in |
 | **autopilot** | 18 | Opt-in |
+
+## File-Scope Governance
+
+Restrict which files the agent can access:
+
+```yaml
+rules:
+  file-scope:
+    allow: ["src/**", "tests/**", "docs/**"]
+    deny: ["*.env", "credentials/**", ".github/workflows/**"]
+```
+
+Deny takes precedence over allow. Blocks Write, Edit, Read, and Bash file operations. Path traversal blocked.
 
 ## CLI Integration
 
