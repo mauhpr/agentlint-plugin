@@ -56,6 +56,16 @@ AgentLint hooks into all 17 Claude Code lifecycle events:
 | **security** | 3 | Opt-in |
 | **autopilot** | 18 | Opt-in |
 
+## CI Mode
+
+Run agentlint in CI pipelines — same rules, same config:
+
+```bash
+agentlint ci --diff origin/main...HEAD
+```
+
+Exit 0 = clean/warnings. Exit 1 = ERROR violations. Use `--format json` for machine-readable output.
+
 ## File-Scope Governance
 
 Restrict which files the agent can access:
@@ -113,6 +123,7 @@ agentlint setup          # Install hooks
 agentlint doctor         # Diagnose issues
 agentlint list-rules     # Show all rules
 agentlint status         # Version, packs, rule count
+agentlint ci             # Scan changed files for CI
 ```
 
 See [agentlint documentation](https://github.com/mauhpr/agentlint) for full reference.
