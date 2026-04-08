@@ -56,6 +56,23 @@ AgentLint hooks into all 17 Claude Code lifecycle events:
 | **security** | 3 | Opt-in |
 | **autopilot** | 18 | Opt-in |
 
+## MCP Server
+
+Agents can query rules and pre-validate code programmatically:
+
+```bash
+pip install agentlint[mcp]
+```
+
+**Tools:**
+- `check_content(content, file_path, tool_name?, event?)` — pre-validate code or Bash commands
+- `list_rules(pack?)` — discover available rules
+- `get_config()` — read current configuration
+
+**Resources:** `agentlint://rules`, `agentlint://config`
+
+The MCP server registers automatically when the plugin is enabled (requires `agentlint[mcp]`).
+
 ## CI Mode
 
 Run agentlint in CI pipelines — same rules, same config:
@@ -124,6 +141,7 @@ agentlint doctor         # Diagnose issues
 agentlint list-rules     # Show all rules
 agentlint status         # Version, packs, rule count
 agentlint ci             # Scan changed files for CI
+agentlint-mcp            # Run MCP server (requires agentlint[mcp])
 ```
 
 See [agentlint documentation](https://github.com/mauhpr/agentlint) for full reference.
