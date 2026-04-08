@@ -1,7 +1,7 @@
 {
   "name": "agentlint",
-  "description": "Real-time quality guardrails for AI coding agents. 68 rules across 8 packs. Monorepo support, MCP server, file-scope governance, CLI integration, CI mode.",
-  "version": "1.5.1",
+  "description": "Real-time quality guardrails for AI coding agents. 68 rules across 8 packs. Warning suppression, diff_only CLI mode, auto-fix formatters, global config defaults.",
+  "version": "1.6.0",
   "author": {
     "name": "mauhpr",
     "email": "mauricio_perez_r@hotmail.com"

@@ -70,6 +70,31 @@ projects:
 
 Files outside project prefixes fall back to global `packs:`. Longest prefix wins.
 
+## Warning Suppression
+
+Suppress noisy warnings for the rest of the session:
+
+```bash
+agentlint suppress drift-detector    # suppress a rule
+agentlint suppress --list            # show suppressed rules
+agentlint suppress --remove drift-detector  # unsuppress one rule
+agentlint suppress --clear           # clear all suppressions
+```
+
+ERRORs are never suppressed (safety invariant). Auto-suppress available via `auto_suppress_after: N` config.
+
+## Global Config Defaults
+
+Set defaults that cascade to all rules:
+
+```yaml
+rules:
+  strict_mode: true          # all rules inherit this
+  auto_suppress_after: 5     # auto-suppress after 5 consecutive fires
+  no-secrets:
+    strict_mode: false       # per-rule override
+```
+
 ## MCP Server
 
 Agents can query rules and pre-validate code programmatically:
@@ -82,6 +107,7 @@ pip install agentlint[mcp]
 - `check_content(content, file_path, tool_name?, event?)` — pre-validate code or Bash commands
 - `list_rules(pack?)` — discover available rules
 - `get_config()` — read current configuration
+- `suppress_rule(rule_id)` — suppress a warning rule for the session
 
 **Resources:** `agentlint://rules`, `agentlint://config`
 
@@ -112,19 +138,31 @@ Deny takes precedence over allow. Blocks Write, Edit, Read, and Bash file operat
 
 ## CLI Integration
 
-Run any command-line tool as a PostToolUse check:
+Run any command-line tool as a PostToolUse check. Global defaults cascade to all commands:
 
 ```yaml
 rules:
   cli-integration:
+    timeout: 15           # default for all commands
+    diff_only: true       # only report violations on changed lines
     commands:
       - name: ruff
-        on: ["Write", "Edit"]
         glob: "**/*.py"
         command: "ruff check {file.path} --output-format=concise"
-        timeout: 10
-        severity: warning
+        timeout: 30       # override for ruff only
+      - name: ruff-format
+        glob: "**/*.py"
+        command: "ruff format {file.path}"
+        mode: auto-fix    # run silently, apply fix, no warning
+      - name: prettier
+        glob: "**/*.{ts,tsx,js,jsx}"
+        command: "prettier --write {file.path}"
+        mode: auto-fix
 ```
+
+**Modes:** `check` (default — report violations), `auto-fix` (run silently, warn only on failure).
+
+**`diff_only`:** Filters CLI output to only violations on changed lines. Pre-existing violations are suppressed.
 
 Template placeholders (`{file.path}`, `{file.stem}`, `{file.dir}`, `{project.dir}`, `{env.VARNAME}`, etc.) resolve from hook context. All values are shell-escaped for security.
 
@@ -153,7 +191,8 @@ agentlint init           # Create agentlint.yml
 agentlint setup          # Install hooks
 agentlint doctor         # Diagnose issues
 agentlint list-rules     # Show all rules
-agentlint status         # Version, packs, rule count
+agentlint status         # Version, packs, rule count, project mappings
+agentlint suppress       # Suppress/unsuppress warning rules
 agentlint ci             # Scan changed files for CI
 agentlint-mcp            # Run MCP server (requires agentlint[mcp])
 ```
