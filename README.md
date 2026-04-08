@@ -95,9 +95,20 @@ rules:
     strict_mode: false       # per-rule override
 ```
 
+## Session Summary
+
+View cumulative session activity at any time:
+
+```bash
+agentlint report --summary              # text dashboard
+agentlint report --summary --format json # structured output
+```
+
+Shows violations (blocked/warnings/info), top rules, files touched, suppressed rules, circuit breaker state, and subagent activity. The Stop report also includes cumulative totals automatically.
+
 ## MCP Server
 
-Agents can query rules and pre-validate code programmatically:
+Agents can **pre-validate code before writing**, eliminating the block-retry loop from PreToolUse hooks:
 
 ```bash
 pip install agentlint[mcp]
@@ -111,7 +122,7 @@ pip install agentlint[mcp]
 
 **Resources:** `agentlint://rules`, `agentlint://config`
 
-The MCP server registers automatically when the plugin is enabled (requires `agentlint[mcp]`).
+The MCP server registers automatically when the plugin is enabled (requires `agentlint[mcp]`). See the [full MCP guide](https://github.com/mauhpr/agentlint/blob/main/docs/mcp.md) for workflow recipes and troubleshooting.
 
 ## CI Mode
 
