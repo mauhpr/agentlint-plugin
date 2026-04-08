@@ -56,6 +56,20 @@ AgentLint hooks into all 17 Claude Code lifecycle events:
 | **security** | 3 | Opt-in |
 | **autopilot** | 18 | Opt-in |
 
+## Monorepo Support
+
+Different subdirectories can use different packs:
+
+```yaml
+projects:
+  frontend/:
+    packs: [universal, frontend, react]
+  backend/:
+    packs: [universal, python]
+```
+
+Files outside project prefixes fall back to global `packs:`. Longest prefix wins.
+
 ## MCP Server
 
 Agents can query rules and pre-validate code programmatically:
