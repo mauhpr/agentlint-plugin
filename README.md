@@ -1,6 +1,8 @@
 # agentlint — Claude Code Plugin
 
-Real-time guardrails for AI coding agents — code quality, security, infrastructure safety, file-scope governance, and CLI tool integration. 68 rules across 8 packs covering all 17 Claude Code hook events.
+Real-time guardrails for AI coding agents — code quality, security, infrastructure safety, file-scope governance, and CLI tool integration. 67 rules across 7 packs covering all 17 Claude Code hook events.
+
+> **Note:** This is the Claude Code plugin wrapper. AgentLint v2.0+ now supports 10 platforms (Claude Code, Cursor, Kimi, Grok, Gemini, Codex, Continue, OpenAI Agents, MCP, and generic HTTP). See the [main repo](https://github.com/mauhpr/agentlint) for other platforms.
 
 ## Prerequisites
 
@@ -33,7 +35,7 @@ claude --plugin-dir /path/to/agentlint-plugin
 
 ## What it does
 
-AgentLint hooks into all 17 Claude Code lifecycle events:
+AgentLint hooks into all 17 Claude Code lifecycle events via this plugin:
 
 | Event | Behavior |
 |-------|----------|
