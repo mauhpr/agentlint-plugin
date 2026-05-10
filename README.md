@@ -1,8 +1,8 @@
 # agentlint — Claude Code Plugin
 
-Real-time guardrails for AI coding agents — code quality, security, infrastructure safety, file-scope governance, and CLI tool integration. 67 rules across 7 packs covering all 17 Claude Code hook events.
+Claude Code plugin wrapper for AgentLint's AI-agent guardrail engine. It gives Claude Code native hooks for code quality, security, infrastructure safety, file-scope governance, and CLI tool integration. AgentLint core supports 76 rules across 8 packs; this plugin registers the high-value Claude Code runtime hooks by default.
 
-> **Note:** This is the Claude Code plugin wrapper. AgentLint v2.0+ now supports 10 platforms (Claude Code, Cursor, Kimi, Grok, Gemini, Codex, Continue, OpenAI Agents, MCP, and generic HTTP). See the [main repo](https://github.com/mauhpr/agentlint) for other platforms.
+> **Note:** This repo is intentionally Claude Code-specific because it packages the marketplace plugin. The `agentlint` Python package is multi-agent and supports Claude Code, Cursor, Kimi, Grok, Gemini, Codex, Continue, OpenAI Agents, MCP, and generic HTTP. See the [main repo](https://github.com/mauhpr/agentlint) for those setup paths.
 
 ## Prerequisites
 
@@ -27,6 +27,8 @@ claude plugin marketplace add mauhpr/agentlint-plugin
 claude plugin install agentlint@agentlint
 ```
 
+For non-Claude platforms, install the Python package and run the platform-specific setup command, for example `agentlint setup cursor`, `agentlint setup codex`, or `agentlint setup gemini`.
+
 ## Install Locally
 
 ```bash
@@ -35,7 +37,7 @@ claude --plugin-dir /path/to/agentlint-plugin
 
 ## What it does
 
-AgentLint hooks into all 17 Claude Code lifecycle events via this plugin:
+AgentLint core supports all 17 Claude Code lifecycle events. This Claude Code plugin registers these runtime hook groups out of the box:
 
 | Event | Behavior |
 |-------|----------|
@@ -49,13 +51,13 @@ AgentLint hooks into all 17 Claude Code lifecycle events via this plugin:
 
 | Pack | Rules | Activates when |
 |------|-------|----------------|
-| **universal** | 19 | Always active |
+| **universal** | 23 | Always active |
 | **quality** | 7 | Always active |
 | **python** | 6 | `pyproject.toml` or `setup.py` exists |
 | **frontend** | 8 | `package.json` exists |
 | **react** | 3 | `react` in package.json dependencies |
 | **seo** | 4 | SSR/SSG framework detected |
-| **security** | 3 | Opt-in |
+| **security** | 7 | Opt-in |
 | **autopilot** | 18 | Opt-in |
 
 ## Monorepo Support
