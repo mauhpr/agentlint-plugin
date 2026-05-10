@@ -35,3 +35,7 @@ rules: {}
 
 # custom_rules_dir: .agentlint/rules/
 # Custom rules with pack = "mypack" activate when "mypack" is listed in packs above
+
+# AgentChute cloud dashboard and hybrid security feeds (opt-in)
+# agentchute:
+#   enabled: false
