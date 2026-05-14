@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.3.0 (2026-05-14) — AgentLint 2.3 Compatibility
+
+- Aligns the Claude Code plugin release with AgentLint 2.3.0.
+- No hook payload or resolver changes.
+- Users get FastAPI-aware async findings, grouped text CI output, and
+  accepted-pattern config support through the installed `agentlint` Python
+  package.
+
+---
+
 ## v2.2.0 (2026-05-10) — Public Docs Cleanup
 
 - Removed the internal 2.1.0 release plan from the public plugin repo.

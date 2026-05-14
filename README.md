@@ -12,6 +12,8 @@ Install the `agentlint` Python package:
 pip install agentlint
 ```
 
+For this 2.3.x plugin release, use AgentLint 2.3.0 or newer.
+
 ## Binary resolution
 
 The plugin automatically resolves the `agentlint` binary at runtime — no PATH configuration needed. It probes, in order: PATH lookup, `~/.local/bin` (pipx), `uv tool` install location, and `python -m agentlint`. This works regardless of how you installed the package.
