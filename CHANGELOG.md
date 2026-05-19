@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.4.0 (2026-05-19) — AgentLint 2.4 Compatibility
+
+- Aligns the Claude Code plugin release with AgentLint 2.4.0.
+- No hook payload or resolver changes.
+- Users get AgentChute local-first onboarding, dashboard pairing, automatic
+  background event upload, policy cache diagnostics, and the new `agentlint
+  onboard`, `login`, `setup-agent`, `status`, `doctor --fix`, `test`,
+  `test-policy`, `queue`, `env`, and `policy` command families through the
+  installed `agentlint` Python package.
+
+---
+
 ## v2.3.1 (2026-05-15) — AgentChute Onboarding Compatibility
 
 - Aligns the Claude Code plugin release with AgentLint 2.3.1.
