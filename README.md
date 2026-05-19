@@ -12,7 +12,7 @@ Install the `agentlint` Python package:
 pip install agentlint
 ```
 
-For this 2.3.x plugin release, use AgentLint 2.3.1 or newer.
+For this 2.4.x plugin release, use AgentLint 2.4.0 or newer.
 
 ## Binary resolution
 
