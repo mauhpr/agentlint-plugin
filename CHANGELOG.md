@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.5.0 (2026-05-23) — AgentLint 2.5 Compatibility
+
+- Aligns the Claude Code plugin release with AgentLint 2.5.0.
+- No hook payload or resolver changes.
+- Users get the new local-first `no-nvd-critical-cve-install` universal rule
+  through the installed `agentlint` Python package. The rule consumes the
+  cached AgentChute `nvd-cves` feed and blocks exact critical/CISA KEV CPE
+  product+version matches without requiring network access in the hook path.
+
+---
+
 ## v2.4.0 (2026-05-19) — AgentLint 2.4 Compatibility
 
 - Aligns the Claude Code plugin release with AgentLint 2.4.0.

@@ -1,6 +1,6 @@
 # agentlint — Claude Code Plugin
 
-Claude Code marketplace wrapper for AgentLint's AI-agent guardrail engine. It gives Claude Code native hooks for code quality, security, infrastructure safety, file-scope governance, and CLI tool integration. AgentLint core supports 76 rules across 8 packs; this plugin registers the high-value Claude Code runtime hooks by default.
+Claude Code marketplace wrapper for AgentLint's AI-agent guardrail engine. It gives Claude Code native hooks for code quality, security, infrastructure safety, file-scope governance, and CLI tool integration. AgentLint core supports 77 rules across 8 packs; this plugin registers the high-value Claude Code runtime hooks by default.
 
 > **Note:** This repo is intentionally Claude Code-specific because it packages the marketplace plugin. The `agentlint` Python package is multi-agent and supports Claude Code, Cursor, Kimi, Grok, Gemini, Codex, Continue, OpenAI Agents, MCP, and generic HTTP. See the [main repo](https://github.com/mauhpr/agentlint) for those setup paths.
 
@@ -12,7 +12,7 @@ Install the `agentlint` Python package:
 pip install agentlint
 ```
 
-For this 2.4.x plugin release, use AgentLint 2.4.0 or newer.
+For this 2.5.x plugin release, use AgentLint 2.5.0 or newer.
 
 ## Binary resolution
 
@@ -53,7 +53,7 @@ AgentLint core supports all 17 Claude Code lifecycle events. This Claude Code pl
 
 | Pack | Rules | Activates when |
 |------|-------|----------------|
-| **universal** | 23 | Always active |
+| **universal** | 24 | Always active |
 | **quality** | 7 | Always active |
 | **python** | 6 | `pyproject.toml` or `setup.py` exists |
 | **frontend** | 8 | `package.json` exists |
