@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.5.1 (2026-05-24) — AgentLint 2.5.1 Compatibility
+
+- Aligns the Claude Code plugin release with AgentLint 2.5.1.
+- No hook payload or resolver changes.
+- Users get the Stop hook session report formatting fix through the installed
+  `agentlint` Python package.
+
+---
+
 ## v2.5.0 (2026-05-23) — AgentLint 2.5 Compatibility
 
 - Aligns the Claude Code plugin release with AgentLint 2.5.0.
