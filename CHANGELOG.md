@@ -3,6 +3,7 @@
 ## v2.5.3 (2026-05-25) — AgentLint 2.5.3 Compatibility
 
 - Aligns the Claude Code plugin release with AgentLint 2.5.3.
+- Updates plugin and marketplace metadata to v2.5.3.
 - No hook payload or resolver changes.
 - Users get AgentChute queue baselining, the `agentlint queue
   discard-pending` recovery command, the `agentlint queue flush` fix, and
