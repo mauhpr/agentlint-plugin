@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.5.3 (2026-05-25) — AgentLint 2.5.3 Compatibility
+
+- Aligns the Claude Code plugin release with AgentLint 2.5.3.
+- No hook payload or resolver changes.
+- Users get AgentChute queue baselining, the `agentlint queue
+  discard-pending` recovery command, the `agentlint queue flush` fix, and
+  clearer policy diagnostics through the installed `agentlint` Python package.
+
+---
+
 ## v2.5.2 (2026-05-25) — AgentLint 2.5.2 Compatibility
 
 - Aligns the Claude Code plugin release with AgentLint 2.5.2.
