@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.5.2 (2026-05-25) — AgentLint 2.5.2 Compatibility
+
+- Aligns the Claude Code plugin release with AgentLint 2.5.2.
+- No hook payload or resolver changes.
+- Users get AgentChute credential persistence through the installed
+  `agentlint` Python package, so `agentlint login`, `agentlint onboard --yes`,
+  and `agentlint test --flush` can run in the same terminal without manually
+  sourcing shell profile changes.
+
+---
+
 ## v2.5.1 (2026-05-24) — AgentLint 2.5.1 Compatibility
 
 - Aligns the Claude Code plugin release with AgentLint 2.5.1.
