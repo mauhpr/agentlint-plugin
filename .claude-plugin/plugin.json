@@ -1,7 +1,7 @@
 {
   "name": "agentlint",
   "description": "Claude Code marketplace wrapper for AgentLint's AI-agent guardrail engine. 77 rules across 8 packs, hybrid AgentChute security feeds, circuit-breaker visibility, inline-ignore reasons.",
-  "version": "2.5.3",
+  "version": "2.5.4",
   "author": {
     "name": "mauhpr",
     "email": "mauricio_perez_r@hotmail.com"

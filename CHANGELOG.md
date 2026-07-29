@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.5.4 (2026-07-29) — AgentLint 2.5.4 Compatibility
+
+- Aligns the Claude Code plugin release with AgentLint 2.5.4.
+- Updates plugin and marketplace metadata to v2.5.4.
+- No hook payload or resolver changes.
+- Users get the Ruff quality baseline, stronger branch-coverage enforcement,
+  expanded MCP tests, and hardened release automation through the installed
+  `agentlint` Python package.
+
+---
+
 ## v2.5.3 (2026-05-25) — AgentLint 2.5.3 Compatibility
 
 - Aligns the Claude Code plugin release with AgentLint 2.5.3.
