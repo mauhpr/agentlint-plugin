@@ -21,17 +21,16 @@ publish a PyPI package.
 3. Validate plugin metadata locally.
 
    ```bash
-   python3 -m json.tool .claude-plugin/plugin.json >/dev/null
-   python3 -m json.tool .claude-plugin/marketplace.json >/dev/null
-   python3 -m json.tool hooks/hooks.json >/dev/null
-   python3 -m json.tool .mcp.json >/dev/null
+   python3 scripts/validate_release.py
    sh -n bin/resolve-and-run.sh
    test -x bin/resolve-and-run.sh
    ```
 
 4. Open the PR and wait for repository checks.
    - The workflow is `.github/workflows/ci.yml`.
-   - It validates JSON, shell syntax, executable bit, and binary resolution.
+   - It validates JSON, version consistency, changelog and README compatibility
+     claims, shell syntax, the executable bit, and resolution of the exact
+     AgentLint version from PyPI.
 
 5. Merge the PR into `main`.
 
@@ -60,6 +59,8 @@ publish a PyPI package.
 ## Important rules
 
 - Do not publish this repo to PyPI.
+- Release AgentLint core first. CI deliberately fails until the exact plugin
+  version can be installed from PyPI.
 - Do not create the plugin GitHub Release until `.claude-plugin/plugin.json`
   and `.claude-plugin/marketplace.json` both contain the release version.
 - Keep hook payload and resolver changes separate from compatibility-only
