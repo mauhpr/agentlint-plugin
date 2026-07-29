@@ -12,7 +12,7 @@ Install the `agentlint` Python package:
 pip install agentlint
 ```
 
-For this 2.5.x plugin release, use AgentLint 2.5.4 or newer.
+For this 2.5.x plugin release, use AgentLint 2.5.5 or newer.
 
 ## Binary resolution
 
@@ -226,6 +226,12 @@ See [agentlint documentation](https://github.com/mauhpr/agentlint) for full refe
 
 - `/agentlint:lint-status` — Show active rules and session violations
 - `/agentlint:lint-config` — Show or edit configuration
+
+## Community and security
+
+Participation is governed by the [Code of Conduct](CODE_OF_CONDUCT.md).
+Report suspected vulnerabilities privately using the process in
+[SECURITY.md](SECURITY.md).
 
 ## Troubleshooting
 

@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.5.5 (2026-07-29) — AgentLint 2.5.5 Compatibility
+
+- Aligns the Claude Code plugin release with AgentLint 2.5.5.
+- Updates plugin and marketplace metadata to v2.5.5.
+- Adds repository CI that validates JSON and version consistency, release
+  notes, compatibility documentation, resolver integrity, and exact AgentLint
+  availability and runtime resolution from PyPI.
+- Adds Contributor Covenant 2.1, private vulnerability reporting guidance,
+  Dependabot configuration, and a repeatable local release validator.
+- No hook payload or resolver changes.
+
+---
+
 ## v2.5.4 (2026-07-29) — AgentLint 2.5.4 Compatibility
 
 - Aligns the Claude Code plugin release with AgentLint 2.5.4.

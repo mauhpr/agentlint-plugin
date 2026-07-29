@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
+
+      - name: Set up Python
+        run: uv python install 3.13
+
+      - name: Validate release metadata
+        id: metadata
+        shell: bash
+        run: |
+          version="$(uv run --python 3.13 python scripts/validate_release.py)"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Validate resolver
+        run: |
+          sh -n bin/resolve-and-run.sh
+          test -x bin/resolve-and-run.sh
+
+      - name: Install matching AgentLint release
+        env:
+          VERSION: ${{ steps.metadata.outputs.version }}
+        run: uv tool install "agentlint==$VERSION"
+
+      - name: Smoke-test binary resolution
+        env:
+          VERSION: ${{ steps.metadata.outputs.version }}
+        run: |
+          actual="$(bin/resolve-and-run.sh --version)"
+          test "$actual" = "agentlint $VERSION"
