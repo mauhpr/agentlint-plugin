@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.6.1 (2026-10-01) — AgentLint 2.6.1 Compatibility
+
+- Updates plugin and marketplace metadata to v2.6.1 and documents AgentLint
+  2.6.1 as the minimum version for this plugin release.
+- Includes the core Codex `PostToolUse` hook-output fix through the installed
+  Python package. Claude hook payloads and the binary resolver are unchanged.
+
+---
+
 ## v2.6.0 (2026-10-01) — AgentLint 2.6.0 Compatibility
 
 - Updates plugin and marketplace metadata to v2.6.0 and requires AgentLint 2.6.0
