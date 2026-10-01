@@ -12,7 +12,15 @@ Install the `agentlint` Python package:
 pip install agentlint
 ```
 
-For this 2.5.x plugin release, use AgentLint 2.5.5 or newer.
+For this 2.6.x plugin release, use AgentLint 2.6.0 or newer.
+
+AgentLint 2.6.0 adds optional workspace policies with required safety rules and
+reduces false positives for literal display commands and supported cloud reads.
+To compose a shared policy with repository settings, configure
+`AGENTLINT_WORKSPACE_CONFIG` in the environment that starts Claude Code; see the
+[workspace configuration reference](https://github.com/mauhpr/agentlint/blob/main/docs/configuration.md#workspace-policy-v260).
+This compatibility release keeps the existing Claude hooks and binary resolver.
+Codex file-patch support is delivered by AgentLint core's separate Codex adapter.
 
 ## Binary resolution
 

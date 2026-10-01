@@ -1,5 +1,19 @@
 # Changelog
 
+## v2.6.0 (2026-10-01) — AgentLint 2.6.0 Compatibility
+
+- Updates plugin and marketplace metadata to v2.6.0 and requires AgentLint 2.6.0
+  or newer for this release's documented functionality.
+- Documents opt-in workspace policy composition and required safety rules.
+- Includes the core engine's conservative literal-command and cloud-read matching
+  improvements through the installed Python package.
+- Keeps Claude hook payloads and the binary resolver unchanged. Codex patch support
+  belongs to the core Codex adapter, not this Claude marketplace wrapper.
+- Release after AgentLint 2.6.0 is published and verified on PyPI; CI verifies the
+  exact package version before this plugin release can merge.
+
+---
+
 ## v2.5.5 (2026-07-29) — AgentLint 2.5.5 Compatibility
 
 - Aligns the Claude Code plugin release with AgentLint 2.5.5.
