@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.7.1 (2026-10-06) — AgentLint 2.7.1 Compatibility
+
+- Updates plugin and marketplace metadata to v2.7.1 and requires AgentLint
+  2.7.1 or newer for this release's documented behavior.
+- Includes core read-only Python file-check improvements and conservative
+  write detection through the installed Python package.
+- Documents the core Codex advisory-feedback correction: warnings stay
+  visible without blocking, while effective errors retain blocking decisions.
+- Release after AgentLint 2.7.1 is published and verified on PyPI; CI verifies
+  the exact package version before this plugin release can merge.
+
+---
+
 ## v2.7.0 (2026-10-03) — AgentLint 2.7.0 Compatibility
 
 - Updates plugin and marketplace metadata to v2.7.0 and requires AgentLint
