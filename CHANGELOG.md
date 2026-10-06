@@ -6,6 +6,8 @@
   2.7.1 or newer for this release's documented behavior.
 - Includes core read-only Python file-check improvements and conservative
   write detection through the installed Python package.
+- Documents the core Codex advisory-feedback correction: warnings stay
+  visible without blocking, while effective errors retain blocking decisions.
 - Release after AgentLint 2.7.1 is published and verified on PyPI; CI verifies
   the exact package version before this plugin release can merge.
 

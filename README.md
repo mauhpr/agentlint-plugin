@@ -20,6 +20,9 @@ execution blocked. Unsupported flags and shell syntax retain conservative
 checks, and an unrelated redirect to a scratch path cannot exempt a Python
 write. These checks inspect syntax without executing submitted Python; they
 do not prove imported functions are pure.
+Codex post-tool warnings, including session-budget notices, stay advisory;
+effective ERROR violations still block. This Codex behavior is supplied by the
+core package's separate Codex adapter.
 To compose a shared policy with repository settings, configure
 `AGENTLINT_WORKSPACE_CONFIG` in the environment that starts Claude Code; see the
 [workspace configuration reference](https://github.com/mauhpr/agentlint/blob/main/docs/configuration.md#workspace-policy-v260).
