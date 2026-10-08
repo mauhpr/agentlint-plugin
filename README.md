@@ -41,7 +41,12 @@ To try a local checkout: `claude --plugin-dir /path/to/agentlint-plugin`.
 
 ## Version compatibility
 
-For this 2.9.0 plugin release, use AgentLint 2.9.0 or newer.
+For this 2.9.1 plugin release, use AgentLint 2.9.1 or newer.
+
+AgentLint 2.9.1 fixes setup output for the OpenAI Agents SDK, MCP and generic
+integrations, uses Gemini's own event names, and refuses to overwrite an agent
+settings file it can't parse. AgentLint 2.9.0 also applies built-in rules to
+Gemini, Kimi, Grok and Cursor tool names, which earlier versions missed.
 
 AgentLint 2.9.0 checks shell commands per parsed operation, so quoted text
 passed to read-only commands and later operations in the same command (such as
@@ -55,9 +60,10 @@ Bash post-tool events so completed test runs are recognized.
 AgentLint 2.8.0 made coverage and denials easy to verify: `agentlint status`
 shows each agent as configured, enabled and observed, and denials name the
 file, line, operation and policy layer.
+
 To compose a shared policy with repository settings, configure
 `AGENTLINT_WORKSPACE_CONFIG` in the environment that starts Claude Code; see the
-[workspace configuration reference](https://github.com/mauhpr/agentlint/blob/main/docs/configuration.md#workspace-policy-v260).
+[workspace configuration reference](https://github.com/mauhpr/agentlint/blob/main/docs/configuration.md#workspace-policy).
 This release widens the PostToolUse matcher to `Bash|Edit|Write`; the binary resolver is unchanged.
 Codex file-patch support is delivered by AgentLint core's separate Codex adapter.
 These improvements are delivered by the installed AgentLint core package.
