@@ -1,5 +1,20 @@
 # Changelog
 
+## v2.8.0 (2026-10-08) — AgentLint 2.8.0 Compatibility
+
+- Updates plugin and marketplace metadata to v2.8.0 and requires AgentLint
+  2.8.0 or newer for this release's documented behavior.
+- Documents core coverage reporting: `agentlint status` recognizes user-scope
+  and wrapper hook installations and shows configured -> enabled -> observed
+  per agent, so this plugin's hooks are reported as observed once they run.
+- Documents actionable denials (file, line, operation and the policy layer that
+  made a rule active), read-only `doctor`, and AgentChute degraded-mode reporting.
+- The MCP server bundled by core adds `check_patch`; no plugin wiring changes.
+- Release after AgentLint 2.8.0 is published and verified on PyPI; CI verifies
+  the exact package version before this plugin release can merge.
+
+---
+
 ## v2.7.1 (2026-10-06) — AgentLint 2.7.1 Compatibility
 
 - Updates plugin and marketplace metadata to v2.7.1 and requires AgentLint

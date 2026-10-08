@@ -12,17 +12,15 @@ Install the `agentlint` Python package:
 pip install agentlint
 ```
 
-For this 2.7.1 plugin release, use AgentLint 2.7.1 or newer.
+For this 2.8.0 plugin release, use AgentLint 2.8.0 or newer.
 
-AgentLint 2.7.1 allows simple literal Python `-c` commands that construct paths
-or read files while keeping visible writes, unknown open modes, and dynamic
-execution blocked. Unsupported flags and shell syntax retain conservative
-checks, and an unrelated redirect to a scratch path cannot exempt a Python
-write. These checks inspect syntax without executing submitted Python; they
-do not prove imported functions are pure.
-Codex post-tool warnings, including session-budget notices, stay advisory;
-effective ERROR violations still block. This Codex behavior is supplied by the
-core package's separate Codex adapter.
+AgentLint 2.8.0 makes coverage and denials easy to verify. `agentlint status`
+shows each agent as configured, enabled and observed (a content-free heartbeat
+is recorded whenever these hooks run), recognizes user-scope and wrapper hook
+installations, and lists the effective policy layers. Denials name the file
+and line, the operation, and the policy layer that made the rule active.
+`agentlint doctor` is read-only unless `--fix` or `--online` is given and states
+which protections still run locally when AgentChute is degraded.
 To compose a shared policy with repository settings, configure
 `AGENTLINT_WORKSPACE_CONFIG` in the environment that starts Claude Code; see the
 [workspace configuration reference](https://github.com/mauhpr/agentlint/blob/main/docs/configuration.md#workspace-policy-v260).
