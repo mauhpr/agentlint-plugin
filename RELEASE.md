@@ -45,8 +45,6 @@ publish a PyPI package.
      --notes-file /path/to/release-notes.md
    ```
 
-   `gh-personal` can be used instead of `gh` on machines configured with that
-   wrapper.
 
 7. Verify the release metadata.
 
