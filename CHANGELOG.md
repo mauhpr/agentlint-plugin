@@ -8,8 +8,10 @@
   `uv run pytest -q > log 2>&1`) reach AgentLint, so `drift-detector` sees real
   test runs and AgentLint records test-run evidence receipts. Previously the
   plugin only sent `Edit|Write` post-tool events, so Bash test runs were never
-  counted. `token-budget` now also counts Bash calls toward its tool-call
-  threshold, matching the core Codex integration.
+  counted. Bash calls appear in the `token-budget` Stop summary but, with
+  AgentLint 2.9.0, do not count toward its mid-session "consider wrapping up"
+  warning (only file-changing calls do), so longer test-heavy sessions are not
+  nudged to stop early.
 - Documents core parsed-operation checks (e.g. a feature-branch push followed by
   `gh pr create --base main` is not a push to main), pack drift detection,
   typed human-only approvals (`agentlint approve`) and `agentlint evidence`.
