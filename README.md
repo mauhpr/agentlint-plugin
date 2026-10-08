@@ -12,19 +12,24 @@ Install the `agentlint` Python package:
 pip install agentlint
 ```
 
-For this 2.8.0 plugin release, use AgentLint 2.8.0 or newer.
+For this 2.9.0 plugin release, use AgentLint 2.9.0 or newer.
 
-AgentLint 2.8.0 makes coverage and denials easy to verify. `agentlint status`
-shows each agent as configured, enabled and observed (a content-free heartbeat
-is recorded whenever these hooks run), recognizes user-scope and wrapper hook
-installations, and lists the effective policy layers. Denials name the file
-and line, the operation, and the policy layer that made the rule active.
-`agentlint doctor` is read-only unless `--fix` or `--online` is given and states
-which protections still run locally when AgentChute is degraded.
+AgentLint 2.9.0 checks shell commands per parsed operation, so quoted text
+passed to read-only commands and later operations in the same command (such as
+`gh pr create --base main` after a feature-branch push) no longer cause false
+matches; unsupported syntax keeps the conservative raw checks. It reports
+configuration drift (explicit packs that omit code the repository contains),
+adds typed, expiring, human-only approvals (`agentlint approve grant <class>`),
+and records test-run evidence (`agentlint evidence`). This plugin now sends
+Bash post-tool events so completed test runs are recognized.
+
+AgentLint 2.8.0 made coverage and denials easy to verify: `agentlint status`
+shows each agent as configured, enabled and observed, and denials name the
+file, line, operation and policy layer.
 To compose a shared policy with repository settings, configure
 `AGENTLINT_WORKSPACE_CONFIG` in the environment that starts Claude Code; see the
 [workspace configuration reference](https://github.com/mauhpr/agentlint/blob/main/docs/configuration.md#workspace-policy-v260).
-This compatibility release keeps the existing Claude hooks and binary resolver.
+This release widens the PostToolUse matcher to `Bash|Edit|Write`; the binary resolver is unchanged.
 Codex file-patch support is delivered by AgentLint core's separate Codex adapter.
 These improvements are delivered by the installed AgentLint core package.
 
@@ -58,7 +63,7 @@ AgentLint core supports all 17 Claude Code lifecycle events. This Claude Code pl
 | Event | Behavior |
 |-------|----------|
 | **PreToolUse** | Blocks secrets, `.env` commits, force-pushes, destructive commands, unsafe shell execution, SQL injection. With security pack: blocks Bash file writes and network exfiltration. |
-| **PostToolUse** | Checks file size, tracks edit drift, detects dead imports, warns on error handling removal. **Runs configured CLI tools** (linters, scanners, test runners) via CLI integration. |
+| **PostToolUse** | Checks file size, tracks edit drift and completed test runs (recorded as evidence), detects dead imports, warns on error handling removal. **Runs configured CLI tools** (linters, scanners, test runners) via CLI integration. |
 | **SubagentStart** | Injects safety briefing into subagent context. |
 | **SubagentStop** | Audits subagent transcripts for dangerous commands. |
 | **Stop** | Generates quality report with debug artifacts, TODOs, token budget, circuit breaker status. |

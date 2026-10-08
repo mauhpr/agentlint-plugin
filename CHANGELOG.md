@@ -1,5 +1,23 @@
 # Changelog
 
+## v2.9.0 (2026-10-08) — AgentLint 2.9.0 Compatibility
+
+- Updates plugin and marketplace metadata to v2.9.0 and requires AgentLint
+  2.9.0 or newer for this release's documented behavior.
+- **PostToolUse now also matches `Bash`.** Completed test commands (for example
+  `uv run pytest -q > log 2>&1`) reach AgentLint, so `drift-detector` sees real
+  test runs and AgentLint records test-run evidence receipts. Previously the
+  plugin only sent `Edit|Write` post-tool events, so Bash test runs were never
+  counted. `token-budget` now also counts Bash calls toward its tool-call
+  threshold, matching the core Codex integration.
+- Documents core parsed-operation checks (e.g. a feature-branch push followed by
+  `gh pr create --base main` is not a push to main), pack drift detection,
+  typed human-only approvals (`agentlint approve`) and `agentlint evidence`.
+- Release after AgentLint 2.9.0 is published and verified on PyPI; CI verifies
+  the exact package version before this plugin release can merge.
+
+---
+
 ## v2.8.0 (2026-10-08) — AgentLint 2.8.0 Compatibility
 
 - Updates plugin and marketplace metadata to v2.8.0 and requires AgentLint
