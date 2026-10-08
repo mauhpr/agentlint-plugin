@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.9.1 (2026-10-08) — AgentLint 2.9.1 Compatibility
+
+- Updates plugin and marketplace metadata to v2.9.1 and requires AgentLint
+  2.9.1 or newer.
+- Core 2.9.1 fixes `setup` output for the OpenAI Agents SDK, MCP and generic
+  integrations, uses Gemini's native event names, and never overwrites an
+  agent settings file it can't parse. No hook or resolver changes in this plugin.
+- Fixes the README link to the workspace policy reference.
+
+---
+
 ## v2.9.0 (2026-10-08) — AgentLint 2.9.0 Compatibility
 
 - Updates plugin and marketplace metadata to v2.9.0 and requires AgentLint
