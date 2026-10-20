@@ -41,7 +41,21 @@ To try a local checkout: `claude --plugin-dir /path/to/agentlint-plugin`.
 
 ## Version compatibility
 
-For this 2.9.1 plugin release, use AgentLint 2.9.1 or newer.
+For this 2.10.0 plugin release, use AgentLint 2.10.0 or newer.
+
+AgentLint 2.10.0 reduces false positives during verification: literal quoted
+stdin heredocs are checked as input, valid JSON data is exempt from the code
+line limit by default, and drift counters and test evidence are scoped to the
+session and actual Git worktree. Evidence-only writes no longer invalidate
+tests of unchanged code. CLI checks suppress summaries of unchanged findings
+while preserving stderr and configuration errors.
+
+Human-issued `fixture-copy` approvals allow exact local copies into fixture
+directories, bound to the source SHA-256 and reusable until expiry or revocation.
+Patch inspection errors now name the selected project boundary; the separate
+Codex adapter also supports named Python scope anchors for repeated context.
+See [Approvals and evidence](https://mauhpr.github.io/agentlint/approvals-and-evidence/).
+This compatibility release changes no plugin hooks or binary resolution.
 
 AgentLint 2.9.1 fixes setup output for the OpenAI Agents SDK, MCP and generic
 integrations, uses Gemini's own event names, and refuses to overwrite an agent
