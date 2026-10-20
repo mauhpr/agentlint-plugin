@@ -9,6 +9,8 @@
   source SHA-256, and clearer patch inspection boundary errors.
 - No hook payload or resolver changes. These improvements come from the
   installed AgentLint core package.
+- Refreshes AgentLint's cached package metadata in CI so the exact newly
+  published release can be installed without waiting for the index cache to expire.
 
 ---
 

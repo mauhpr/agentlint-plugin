@@ -38,7 +38,7 @@ jobs:
       - name: Install matching AgentLint release
         env:
           VERSION: ${{ steps.metadata.outputs.version }}
-        run: uv tool install "agentlint==$VERSION"
+        run: uv tool install --refresh-package agentlint "agentlint==$VERSION"
 
       - name: Smoke-test binary resolution
         env:
