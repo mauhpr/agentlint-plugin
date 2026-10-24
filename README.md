@@ -41,7 +41,19 @@ To try a local checkout: `claude --plugin-dir /path/to/agentlint-plugin`.
 
 ## Version compatibility
 
-For this 2.10.0 plugin release, use AgentLint 2.10.0 or newer.
+For this 2.10.1 plugin release, use AgentLint 2.10.1 or newer.
+
+AgentLint 2.10.1 identifies actual executables and flags before interpreting
+scheduler, account and infrastructure operations. It recognizes requirements
+installs after virtualenv options and reports missing, stale, disabled or
+other-project hook observations. File-size checks can warn before Write/Edit
+runs, while standard mode keeps warnings advisory.
+
+Test receipts and drift now require reliable shell control flow. For piped test
+logs, use `set -o pipefail && pytest -q 2>&1 | tee /private/tmp/tests.log` in the
+same shell call. Background jobs and failure-masking shell operations do not
+count as passing test evidence. This release changes no plugin hook payloads
+or binary resolution; upgrade the installed AgentLint Python package as well.
 
 AgentLint 2.10.0 reduces false positives during verification: literal quoted
 stdin heredocs are checked as input, valid JSON data is exempt from the code

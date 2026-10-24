@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.10.1 (2026-10-24) — Command Intent and Verification Health
+
+- Requires AgentLint 2.10.1 or newer for executable-aware operation checks,
+  requirements-install recognition, clearer hook-health diagnostics and
+  pre-write file-size checks.
+- Test receipts and drift no longer treat masked shell failures or background
+  test jobs as passing evidence. Piped logs require explicit successful pipefail
+  setup in the same call.
+- No hook payload or resolver changes; behavior comes from the installed core.
+
+---
+
 ## v2.10.0 (2026-10-20) — Precise Verification Guardrails
 
 - Requires AgentLint 2.10.0 or newer for session/worktree-scoped test evidence,
