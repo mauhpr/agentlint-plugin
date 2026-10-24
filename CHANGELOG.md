@@ -1,5 +1,19 @@
 # Changelog
 
+## v2.10.0 (2026-10-20) — Precise Verification Guardrails
+
+- Requires AgentLint 2.10.0 or newer for session/worktree-scoped test evidence,
+  fewer false positives on literal stdin heredocs and JSON evidence, and CLI
+  diagnostics that preserve separate tool errors.
+- Documents reusable, expiring, human-issued `fixture-copy` approvals bound to
+  source SHA-256, and clearer patch inspection boundary errors.
+- No hook payload or resolver changes. These improvements come from the
+  installed AgentLint core package.
+- Refreshes AgentLint's cached package metadata in CI so the exact newly
+  published release can be installed without waiting for the index cache to expire.
+
+---
+
 ## v2.9.1 (2026-10-08) — AgentLint 2.9.1 Compatibility
 
 - Updates plugin and marketplace metadata to v2.9.1 and requires AgentLint
