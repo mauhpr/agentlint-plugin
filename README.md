@@ -68,7 +68,7 @@ The plugin also registers the `agentlint-mcp` server when its optional dependenc
 
 ## Version compatibility
 
-This plugin release is **2.10.1** and requires **AgentLint 2.10.1 or newer**. The plugin packages integration files; the installed Python package supplies all rules and their behavior. Upgrading one does not upgrade the other.
+For this **2.10.1** plugin release, use AgentLint 2.10.1 or newer. The plugin packages integration files; the installed Python package supplies all rules and their behavior. Upgrading one does not upgrade the other.
 
 See the [plugin changelog](CHANGELOG.md) for packaging changes and the [core changelog](https://github.com/mauhpr/agentlint/blob/main/CHANGELOG.md) for rule, adapter, and CLI changes.
 
@@ -114,6 +114,8 @@ Hooks call `bin/resolve-and-run.sh`. It looks for `agentlint` on `PATH`, in `~/.
 AgentLint is a rule and heuristic layer, not a sandbox. Keep review, tests, branch protection, and scoped credentials in place. Cloud event delivery is optional; see [privacy and optional AgentChute](https://mauhpr.github.io/agentlint/agentchute/).
 
 ## Community and security
+
+<a id="license"></a>
 
 [Code of Conduct](CODE_OF_CONDUCT.md) · [Report a vulnerability privately](SECURITY.md) · [MIT license](LICENSE)
 
