@@ -64,7 +64,7 @@ AgentLint provides feedback. It does not automatically rewrite your code.
 
 The first three are agent definitions; the last two are slash commands. Review proposed fixes before approving them. The plugin's agent definitions include their own pre-tool hooks.
 
-The plugin also registers the `agentlint-mcp` server when its optional dependencies are installed. MCP checks are on demand and advisory; native hooks supply enforcement. [MCP setup and tools](https://mauhpr.github.io/agentlint/agents/mcp-hosts/)
+The plugin also registers the `agentlint-mcp` server when its optional dependencies are installed. MCP checks are on demand and advisory; native hooks supply enforcement. [MCP setup](https://mauhpr.github.io/agentlint/agents/mcp-hosts/) · [MCP tools](https://mauhpr.github.io/agentlint/mcp/)
 
 ## Version compatibility
 
@@ -89,6 +89,9 @@ After-tool and session-end checks cannot prevent an action that has already happ
 ## Make it fit your project
 
 The policy lives in `agentlint.yml`. Start with core defaults, then enable the packs and conventions you need.
+
+For shared local policy, set `AGENTLINT_WORKSPACE_CONFIG` in the environment that starts Claude Code; see the [workspace configuration reference](https://mauhpr.github.io/agentlint/configuration/#workspace-policy).
+Use [approvals and evidence](https://mauhpr.github.io/agentlint/approvals-and-evidence/) for human-issued grants, hash-bound fixture-copy approvals, and verification receipts.
 
 - [Protect main](https://mauhpr.github.io/agentlint/guides/protect-main/) — distinguish warnings, blocking rules, and branch protection.
 - [Fix a false positive](https://mauhpr.github.io/agentlint/guides/fix-a-false-positive/) — use the narrowest adjustment.
