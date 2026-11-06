@@ -68,7 +68,12 @@ The plugin also registers the `agentlint-mcp` server when its optional dependenc
 
 ## Version compatibility
 
-For this **2.10.1** plugin release, use AgentLint 2.10.1 or newer. The plugin packages integration files; the installed Python package supplies all rules and their behavior. Upgrading one does not upgrade the other.
+For this **2.11.0** plugin release, use AgentLint 2.11.0 or newer. The plugin packages integration files; the installed Python package supplies all rules and their behavior. Upgrading one does not upgrade the other.
+
+Upgrade the engine with `uv tool upgrade agentlint`, update the marketplace plugin,
+then restart Claude Code. If an older resolved engine lacks passive observation,
+the resolver reports unknown activity visibility and requests an upgrade. Existing
+policy checks still execute with their original output and exit status.
 
 See the [plugin changelog](CHANGELOG.md) for packaging changes and the [core changelog](https://github.com/mauhpr/agentlint/blob/main/CHANGELOG.md) for rule, adapter, and CLI changes.
 
@@ -78,6 +83,11 @@ See the [plugin changelog](CHANGELOG.md) for packaging changes and the [core cha
 |-------|---------|---------|---------|
 | PreToolUse | `Bash\|Edit\|Write` | 5s | Deny matched actions with ERROR findings; return advisory findings |
 | PostToolUse | `Bash\|Edit\|Write` | 10s | Inspect results, record qualifying test evidence, run configured CLI checks |
+| PostToolUse | all | 5s | Passively observe tool outcomes and surface other pending approvals |
+| PostToolUseFailure | `Bash\|Edit\|Write` | 10s | Process failed tool results through existing policy checks |
+| PostToolUseFailure | all | 5s | Passively record failure or cancellation |
+| PermissionRequest | all | 5s | Observe native approval waits without deciding them |
+| SessionStart | all | 5s | Surface pending observations on startup or resume |
 | UserPromptSubmit | all | 5s | Prompt-level rules |
 | SubagentStart | all | 5s | Optional autopilot safety briefing |
 | SubagentStop | all | 10s | Optional retrospective transcript audit |
@@ -85,6 +95,11 @@ See the [plugin changelog](CHANGELOG.md) for packaging changes and the [core cha
 | Stop | all | 30s | Session report |
 
 After-tool and session-end checks cannot prevent an action that has already happened. Subagent hook behavior depends on the host's version and configuration; the briefing and transcript audit do not prove real-time coverage. [Subagent safety](https://mauhpr.github.io/agentlint/subagent-safety/)
+
+Activity is last-observed state, not a live execution guarantee. Available host
+signals can attribute a wait to a child or approval owner; absent signals remain
+unknown. Observers never approve, cancel or resubmit requests. Real-host approval
+survival and execution remain controlled by Claude Code.
 
 ## Make it fit your project
 
@@ -102,6 +117,10 @@ Use [approvals and evidence](https://mauhpr.github.io/agentlint/approvals-and-ev
 ## How the binary is found
 
 Hooks call `bin/resolve-and-run.sh`. It looks for `agentlint` on `PATH`, in `~/.local/bin`, in the uv tool location, then tries `python -m agentlint`. If resolution fails, install the package and check the environment that launches Claude Code.
+
+For `observe` only, the resolver probes command support without event stdin before
+forwarding the original payload. Unsupported observation emits an upgrade diagnostic
+on stderr and no approval response. This capability check never skips policy commands.
 
 ## Troubleshooting
 

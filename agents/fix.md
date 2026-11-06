@@ -6,7 +6,7 @@ hooks:
     - matcher: "Bash|Edit|Write"
       hooks:
         - type: command
-          command: "${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh check --event PreToolUse --project-dir \"$CLAUDE_PROJECT_DIR\""
+          command: "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" check --event PreToolUse --project-dir \"$CLAUDE_PROJECT_DIR\""
           timeout: 5
 ---
 

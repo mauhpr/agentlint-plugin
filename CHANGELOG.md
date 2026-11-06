@@ -1,5 +1,27 @@
 # Changelog
 
+## v2.11.0 (2026-11-05) — Passive Approval and Activity Observations
+
+- Requires AgentLint 2.11.0 or newer, now published on PyPI.
+- Add permission, startup, failure and all-tool completion observers matching
+  core's Claude integration. Existing policy hooks keep their matchers and decisions.
+- Show available child approval waits on startup/resume without approving,
+  cancelling or replaying requests. Missing host telemetry remains unknown.
+- An older engine receives an upgrade diagnostic for unsupported passive observers;
+  policy checks still run and preserve their output and exit status.
+- Preserve event stdin during capability probes, and allow Python-only installations
+  to resolve when `python3` is absent.
+- Quote launcher paths in packaged hooks and all three specialist-agent hooks.
+- Test resolver fallback locations, hook parity and native-shaped event payloads
+  against the exact published core version in CI.
+
+Restart Claude Code after updating both the engine and plugin. Use the plugin or
+native `agentlint setup claude`, since installing both can duplicate hook calls.
+Real-host approval survival and execution remain host-owned; tests do not prove
+live conformance on every Claude Code version.
+
+---
+
 ## v2.10.1 (2026-10-24) — Command Intent and Verification Health
 
 - Requires AgentLint 2.10.1 or newer for executable-aware operation checks,

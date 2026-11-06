@@ -6,7 +6,7 @@ hooks:
     - matcher: "Bash|Edit|Write"
       hooks:
         - type: command
-          command: "${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh check --event PreToolUse --project-dir \"$CLAUDE_PROJECT_DIR\""
+          command: "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" check --event PreToolUse --project-dir \"$CLAUDE_PROJECT_DIR\""
           timeout: 5
 ---
 
@@ -19,7 +19,7 @@ You are a security auditor using AgentLint to scan a codebase for vulnerabilitie
 
 2. **Scan for hardcoded secrets:**
    Search the codebase for patterns matching API keys, tokens, passwords, and credentials:
-   - Look for `AKIA` (AWS keys), `sk_live_`, `sk_test_` (Stripe), `ghp_` (GitHub tokens)
+   - Check for AWS access key identifiers, Stripe live/test API keys, and GitHub personal access tokens
    - Search for `password`, `secret`, `api_key`, `token` assignments with literal string values
    - Check for Bearer tokens and JWTs in source code
 

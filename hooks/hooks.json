@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh check --event PreToolUse --project-dir \"$CLAUDE_PROJECT_DIR\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" check --event PreToolUse --project-dir \"$CLAUDE_PROJECT_DIR\"",
             "timeout": 5
           }
         ]
@@ -18,8 +18,17 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh check --event PostToolUse --project-dir \"$CLAUDE_PROJECT_DIR\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" check --event PostToolUse --project-dir \"$CLAUDE_PROJECT_DIR\"",
             "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" observe --event PostToolUse --adapter claude --project-dir \"$CLAUDE_PROJECT_DIR\"",
+            "timeout": 5
           }
         ]
       }
@@ -29,7 +38,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh check --event UserPromptSubmit --project-dir \"$CLAUDE_PROJECT_DIR\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" check --event UserPromptSubmit --project-dir \"$CLAUDE_PROJECT_DIR\"",
             "timeout": 5
           }
         ]
@@ -40,7 +49,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh check --event SubagentStart --project-dir \"$CLAUDE_PROJECT_DIR\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" check --event SubagentStart --project-dir \"$CLAUDE_PROJECT_DIR\"",
             "timeout": 5
           }
         ]
@@ -51,7 +60,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh check --event SubagentStop --project-dir \"$CLAUDE_PROJECT_DIR\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" check --event SubagentStop --project-dir \"$CLAUDE_PROJECT_DIR\"",
             "timeout": 10
           }
         ]
@@ -62,7 +71,50 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh check --event Notification --project-dir \"$CLAUDE_PROJECT_DIR\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" check --event Notification --project-dir \"$CLAUDE_PROJECT_DIR\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" observe --event PermissionRequest --adapter claude --project-dir \"$CLAUDE_PROJECT_DIR\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" check --event SessionStart --adapter claude --project-dir \"$CLAUDE_PROJECT_DIR\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "Bash|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" check --event PostToolUseFailure --adapter claude --project-dir \"$CLAUDE_PROJECT_DIR\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" observe --event PostToolUseFailure --adapter claude --project-dir \"$CLAUDE_PROJECT_DIR\"",
             "timeout": 5
           }
         ]
@@ -73,7 +125,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh report --project-dir \"$CLAUDE_PROJECT_DIR\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/bin/resolve-and-run.sh\" report --project-dir \"$CLAUDE_PROJECT_DIR\"",
             "timeout": 30
           }
         ]
