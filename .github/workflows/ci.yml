@@ -40,6 +40,9 @@ jobs:
           VERSION: ${{ steps.metadata.outputs.version }}
         run: uv tool install --refresh-package agentlint "agentlint==$VERSION"
 
+      - name: Test resolver and packaged hooks
+        run: uv run --python 3.13 python -m unittest discover -s tests -v
+
       - name: Smoke-test binary resolution
         env:
           VERSION: ${{ steps.metadata.outputs.version }}
