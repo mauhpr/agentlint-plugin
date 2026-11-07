@@ -30,6 +30,12 @@ class HookTests(unittest.TestCase):
             "CLAUDE_PROJECT_DIR": str(self.project),
             "AGENTLINT_CACHE_DIR": str(self.project / "cache"),
         }
+        # Native Claude fixtures must not inherit the test runner's host identity.
+        for platform in ("KIMI", "GROK", "GEMINI", "CODEX", "CONTINUE", "CURSOR"):
+            for suffix in ("SESSION_ID", "PROJECT_DIR"):
+                self.env.pop(f"{platform}_{suffix}", None)
+        for key in ("OPENAI_RUN_ID", "OPENAI_THREAD_ID", "MCP_SESSION_ID"):
+            self.env.pop(key, None)
 
     def hook(self, event, data, passive=False):
         commands = [
@@ -154,6 +160,25 @@ class HookTests(unittest.TestCase):
                     ],
                     "deny",
                 )
+
+    def test_check_and_observer_deliver_each_approval_change_once(self):
+        payload = {
+            "session_id": "dedup-session",
+            "tool_use_id": "dedup-call",
+            "tool_name": "Bash",
+            "tool_input": {"command": "git status"},
+        }
+        self.hook("PermissionRequest", payload, passive=True)
+        first = self.hook("SessionStart", {"session_id": "dedup-session"})
+        self.assertIn("awaiting_approval", first)
+        self.hook("PermissionRequest", payload, passive=True)
+        repeated = self.hook("SessionStart", {"session_id": "dedup-session"})
+        self.assertNotIn("awaiting_approval", repeated)
+        completed = {**payload, "tool_response": {"exit_code": 0}}
+        checked = self.hook("PostToolUse", completed)
+        observed = self.hook("PostToolUse", completed, passive=True)
+        self.assertIn("completed", checked)
+        self.assertNotIn("completed", observed)
 
     def test_approval_wait_resume_and_failure_are_passive(self):
         payload = {

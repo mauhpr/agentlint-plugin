@@ -68,10 +68,13 @@ The plugin also registers the `agentlint-mcp` server when its optional dependenc
 
 ## Version compatibility
 
-For this **2.11.0** plugin release, use AgentLint 2.11.0 or newer. The plugin packages integration files; the installed Python package supplies all rules and their behavior. Upgrading one does not upgrade the other.
+For this **2.12.0** plugin release, use AgentLint 2.12.0 or newer. The plugin packages integration files; the installed Python package supplies all rules and their behavior. Upgrading one does not upgrade the other.
 
 Upgrade the engine with `uv tool upgrade agentlint`, update the marketplace plugin,
-then restart Claude Code. If an older resolved engine lacks passive observation,
+then restart Claude Code when it is safe to do so without interrupting a pending
+approval request. Core 2.12.0 supplies deduplicated conversation-scoped notices,
+compact status, narrow expiring grants and command/detector fixes. If an older
+resolved engine lacks passive observation,
 the resolver reports unknown activity visibility and requests an upgrade. Existing
 policy checks still execute with their original output and exit status.
 
