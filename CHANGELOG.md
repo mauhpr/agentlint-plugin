@@ -1,5 +1,24 @@
 # Changelog
 
+## v2.12.0 (2026-11-07) — Precise Feedback and Scoped Authorization
+
+- Requires AgentLint 2.12.0 or newer for conversation-scoped approval notice
+  deduplication, clearer observed-state attribution and compact status filters.
+- Core supplies expiring exact-finding and create-only GCS JSON upload grants,
+  wrapped-command classification and fewer secret, guard-relocation and
+  monorepo-drift false positives. Upgrade the Python engine separately.
+- No hook payload or resolver changes; the existing passive observation
+  capability floor remains unchanged.
+- Add a packaged-hook regression for unchanged approval notices and completion
+  changes shared by policy checks and passive observers.
+
+Update both engine and plugin. Restart Claude Code when safe without interrupting
+pending host requests. Automated resolver and hook fixtures establish payload
+contracts; live approval survival remains host-owned and is not proven on every
+Claude Code version.
+
+---
+
 ## v2.11.0 (2026-11-05) — Passive Approval and Activity Observations
 
 - Requires AgentLint 2.11.0 or newer, now published on PyPI.
